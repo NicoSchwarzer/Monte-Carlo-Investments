@@ -108,7 +108,9 @@ mean_us_aa = np.mean(df3["us_aa"])
 print(mean_us_aa)
 
 
+
 ## weights for the 7 investments
+
 w1 = np.random.random(7)
 w2 = w1/np.sum(w1)
 
@@ -144,10 +146,17 @@ ra = 2000
 # creating empty matrices and vectors to be filled
 cols = len(df3.columns)
 
-weights = np.zeros((num, cols))
-mean_return = np.zeros(num)
-vola = np.zeros(num)
-sharpe_ratios = np.zeros(num)
+
+weights = np.ones((num, cols))
+
+def to_ones(x):
+    x1 = np.ones(x)
+    return x1
+
+
+mean_return = to_ones(num)
+vola = to_ones(num)
+sharpe_ratios = to_ones(num)
 
 for i in range(ra):
     
